@@ -5,18 +5,23 @@ border.style.paddingBottom = "15px";
 const check = () => {
     const fizzBuzz = parseInt(document.getElementById("number").value);
     const result = document.getElementById("result");
+    let output = 0
 
     if (isNaN(fizzBuzz)) {
-        result.innerHTML = "Not a Number";
+        output = "Not a Number";
         alert("Input is not a number");
     } else if (fizzBuzz % 15 === 0) {
-        result.innerHTML = "FizzBuzz!";
+        output  = "FizzBuzz!";
     } else if (fizzBuzz % 3 === 0) {
-        result.innerHTML = "Fizz!";
+        output  = "Fizz!";
     } else if (fizzBuzz % 5 === 0) {
-        result.innerHTML = "Buzz!";
+        output  = "Buzz!";
     } else {
-        result.innerHTML = fizzBuzz;
+        output  = fizzBuzz;
     }
-    return fizzBuzz;
+    const prevResult = document.createElement("p");
+    const prevResultText = document.createTextNode(output);
+    prevResult.appendChild(prevResultText);
+    result.appendChild(prevResult)
 }
+
